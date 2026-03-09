@@ -41,12 +41,12 @@ export default AccountCard;
 
 const styles = StyleSheet.create({
   card: {
-    backgroundColor: '#ffffff',
-    padding: 15,
-    marginBottom: 15,
-    borderRadius: 6,
+    backgroundColor: colors.white,
+    padding: moderateScale(15),
+    marginBottom: moderateScale(15),
+    borderRadius: moderateScale(6),
     borderWidth: 1,
-    borderColor: '#ccc',
+    borderColor: colors.boderColor,
     elevation: 2,
     borderRadius: moderateScale(10),
   },
@@ -54,23 +54,23 @@ const styles = StyleSheet.create({
   row: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    paddingVertical: 12,
+    paddingVertical: moderateScale(12),
   },
 
   label: {
-    fontSize: 18,
-    color: '#0c332f',
+    fontSize: moderateScale(18),
+    color: colors.bodyTextColor,
     marginBottom: 5,
   },
 
   value: {
-    fontSize: 18,
-    color: '#0c332f',
-    marginBottom: 5,
+    fontSize: moderateScale(18),
+    color: colors.bodyTextColor,
+    marginBottom: moderateScale(5),
   },
 
   divider: {
     height: 1,
-    backgroundColor: '#eee',
+    backgroundColor: colors.dividerColor,
   },
 });

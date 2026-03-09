@@ -15,6 +15,7 @@ import AccountCard from '../components/AccountCard';
 import { fetchAccounts } from '../redux/account/accountThunk';
 import MaterialDesignIcons from '@react-native-vector-icons/material-design-icons';
 import { moderateScale } from 'react-native-size-matters';
+import { colors } from '../constants/theme';
 const SavingsAccountScreen = () => {
   const dispatch = useDispatch();
 
@@ -56,7 +57,10 @@ const SavingsAccountScreen = () => {
 
   return (
     <SafeAreaView style={styles.container}>
-      <StatusBar barStyle={'dark-content'} backgroundColor={'#fbfbf6'} />
+      <StatusBar
+        barStyle={'dark-content'}
+        backgroundColor={colors.background}
+      />
       <Text style={styles.title}>Savings Accounts</Text>
 
       {accounts.length > 0 && <AccountCard account={accounts[index]} />}
@@ -68,7 +72,7 @@ const SavingsAccountScreen = () => {
           onPress={prevAccount}
         >
           <MaterialDesignIcons name="chevron-left" size={24} color={'gray'} />
-          <Text style={styles.link1}>Previous</Text>
+          <Text style={styles.link}>Previous</Text>
         </TouchableOpacity>
 
         <TouchableOpacity
@@ -76,11 +80,11 @@ const SavingsAccountScreen = () => {
           style={styles.buttonContainer}
           onPress={nextAccount}
         >
-          <Text style={styles.link2}>Next</Text>
+          <Text style={{ ...styles.link, color: colors.primary }}>Next</Text>
           <MaterialDesignIcons
             name="chevron-right"
             size={24}
-            color={'#008c85'}
+            color={colors.primary}
           />
         </TouchableOpacity>
       </View>
@@ -93,28 +97,24 @@ export default SavingsAccountScreen;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fbfbf6',
+    backgroundColor: colors.background,
     padding: moderateScale(20),
   },
   buttonContainer: {
     flexDirection: 'row',
     alignItems: 'center',
   },
-  link1: {
+  link: {
     color: 'gray',
     fontSize: moderateScale(18),
     fontWeight: 'bold',
   },
-  link2: {
-    color: '#008c85',
-    fontSize: moderateScale(18),
-    fontWeight: 'bold',
-  },
+
   title: {
     fontSize: moderateScale(30),
     fontWeight: 'bold',
-    color: '#e4efee',
-    backgroundColor: '#008c85',
+    color: colors.headingTextColor,
+    backgroundColor: colors.primary,
     padding: moderateScale(10),
     marginBottom: moderateScale(20),
     borderRadius: moderateScale(10),
